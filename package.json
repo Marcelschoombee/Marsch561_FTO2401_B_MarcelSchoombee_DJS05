@@ -1,0 +1,20 @@
+{
+  "name": "marsch561_fto2401_b_marcelschoombee_djs05",
+  "version": "1.0.0",
+  "description": "In this challenge, you will venture into the realm of state management by constructing a Redux-inspired store to manage the state of a simple Tally App. Your primary goal is to manage the app's state changes efficiently, focusing on core functionalities like incrementing, decrementing, and resetting a counter. Instead of rendering changes on the UI, you'll subscribe to state updates and log them to the console, highlighting the power of state management in applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.5",
+    "react-redux": "^9.1.2"
+  }
+}
