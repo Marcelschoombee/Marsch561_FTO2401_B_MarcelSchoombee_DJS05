@@ -1,10 +1,6 @@
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
 
-export const increment = () => ({
-  type: INCREMENT,
-});
 
-export const decrement = () => ({
-  type: DECREMENT,
-});
+// Define action types
+export const ADD = 'ADD';
+export const SUBTRACT = 'SUBTRACT';
+export const RESET = 'RESET';
