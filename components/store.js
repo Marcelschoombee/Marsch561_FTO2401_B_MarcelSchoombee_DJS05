@@ -1,8 +1,13 @@
+// A state statemanagement system inspired bt Redux
+
+// This const represents differant actions that can despatched to the state.
 // Define action types
 const ADD = 'ADD';
 const SUBTRACT = 'SUBTRACT';
 const RESET = 'RESET';
 
+// The reducer function manages state changes. It takes two parameters, 
+// state and action and returns a new state.
 // Define reducer function
 const reducer = (state = { count: 0 }, action) => {
     switch (action.type) {
@@ -17,19 +22,21 @@ const reducer = (state = { count: 0 }, action) => {
     }
 };
 
+
+// The createStore function creates a store to manage the state.
 // Define createStore function
 const createStore = (reducer) => {
     let state;
     let listeners = [];
 
-    const getState = () => state;
+    const getState = () => state; // Returns the current state.
 
-    const dispatch = (action) => {
+    const dispatch = (action) => { // Takes a action, uses the reducer to change the current state.
         state = reducer(state, action);
         listeners.forEach(listener => listener());
     };
 
-    const subscribe = (listener) => {
+    const subscribe = (listener) => { // Adds a listener to the listeners array.
         listeners.push(listener);
         return () => {
             listeners = listeners.filter(l => l !== listener);
@@ -46,21 +53,17 @@ const createStore = (reducer) => {
 const store = createStore(reducer);
 
 // Initial State Verification
-console.log("Scenario 1: Initial State Verification");
 console.log("Initial state:", store.getState().count);
 
 // Incrementing the Counter
-console.log("\nScenario 2: Incrementing the Counter");
 store.dispatch({ type: ADD });
 store.dispatch({ type: ADD });
 console.log("Count after incrementing twice:", store.getState().count);
 
 // Decrementing the Counter
-console.log("\nScenario 3: Decrementing the Counter");
 store.dispatch({ type: SUBTRACT });
 console.log("Count after decrementing once:", store.getState().count);
 
 // Resetting the Counter
-console.log("\nScenario 4: Resetting the Counter");
 store.dispatch({ type: RESET });
 console.log("Count after resetting:", store.getState().count);
